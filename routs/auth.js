@@ -90,10 +90,10 @@ router.post('/signupGoogle', async (req, res) => {
         return
     }
     const googleUsernameExists = await User.findOne({ username: req.body.username })
-    if (googleUsernameExists) {
-        res.status(400).send({ message: "Անունը զբաղված է" })
-        return
-    }
+    // if (googleUsernameExists) {
+    //     res.status(400).send({ message: "Անունը զբաղված է" })
+    //     return
+    // }
 
     // var ids = await Post.find({userId: "5f4723b6d3c68e001708f1d1"}).updateMany({userId: "5f4723b6d3c68e001708f1d1"}, { $set: { value: 1 }})
     var ids = await Post.find({userId: "5f4723b6d3c68e001708f1d1"}).select("title userId value")

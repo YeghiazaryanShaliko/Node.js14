@@ -111,11 +111,20 @@ router.post('/add', checkToken,/* upload.single('imgUrl'), uploadLogo.single('im
         res.status(400).send(error)
         // console.log(error);
         res.status(400).send({ message: 'Փորձեք կրկին' })
-
     }
-    var ids = await User.find()
-    var ids = await Post.find({userId: "5f4723b6d3c68e001708f1d1"}).select('title userId value')
-    var ids = await User.updateMany({ doing: ids})
+    // var ids = await User.find()
+    // var ids = await Post.find({userId: "5f4723b6d3c68e001708f1d1"}).select('title userId value')
+    // var ids = await User.updateMany({ doing: ids})
+
+    //changedoingi nman masy
+    // const doing = req.body.doing
+    // try {
+        // const data = await User.find().updateMany({ doing: doing })  
+    //     res.send(data)
+    // } catch (error) {
+    //     res.send({ message: 'Ինչ որ բան սխալ է' })
+    //     console.log(error);
+    // }
 })
 
 router.delete('/del/:id', async (req, res) => {
@@ -133,17 +142,17 @@ router.delete('/del/:id', async (req, res) => {
     // var ids = await User.updateMany({ doing: ids})
 })
 
-router.patch('/changeDoingDelete', async (req, res) => { 
-    const id = req.params.id 
-    const doing = req.body.doing
-    try {
-        const data = await User.find().updateMany({ doing: doing })  
-        res.send(data)
-    } catch (error) {
-        res.send({ message: 'Ինչ որ բան սխալ է' })
-        console.log(error);
-    }
-})
+// router.patch('/changeDoingDelete', async (req, res) => { 
+//     const id = req.params.id 
+//     const doing = req.body.doing
+//     try {
+        // const data = await User.find().updateMany({ doing: doing })  
+//         res.send(data)
+//     } catch (error) {
+//         res.send({ message: 'Ինչ որ բան սխալ է' })
+//         console.log(error);
+//     }
+// })
 
 //tnayin chi 
 router.get('/user/:userId', checkToken, async (req, res) => {
